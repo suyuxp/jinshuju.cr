@@ -1,9 +1,13 @@
-name: jin_shu_ju
+name: jinshuju
 version: 0.1.0
 
 authors:
-  - your-name-here <your-email-here>
+  - Su Yu <suyu@intermaker.cn>
 
 crystal: 0.35.1
 
 license: MIT
+
+dependencies:
+  halite:
+    github: icyleaf/halite

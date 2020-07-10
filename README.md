@@ -1,32 +1,29 @@
-# jin_shu_ju
+# 金数据接口
 
-TODO: Write a description here
+与金数据对接数据接口，官方文档请查阅 <https://help.jinshuju.net/articles/api-intro>
 
-## Installation
+## 安装
 
-1. Add the dependency to your `shard.yml`:
+1. 在你的 `shard.yml` 中增加依赖:
 
    ```yaml
    dependencies:
-     jin_shu_ju:
+     jinshuju:
        github: your-github-user/jinshuju
    ```
 
-2. Run `shards install`
+2. 运行 `shards install`
 
-## Usage
+## 使用
 
 ```crystal
-require "jin_shu_ju"
+require "jinshuju"
+
+api = Jinshuju::API.new(host: "somedomain.jinshuju.com", key: "apikey", secret: "apisecret")
+puts api.all_entries("Ex2t1y")
 ```
 
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
-
-## Contributing
+## 贡献
 
 1. Fork it (<https://github.com/your-github-user/jinshuju/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -34,6 +31,5 @@ TODO: Write development instructions here
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
 
-## Contributors
+## 贡献者
 
-- [your-name-here](https://github.com/your-github-user) - creator and maintainer
