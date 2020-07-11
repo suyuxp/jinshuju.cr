@@ -41,14 +41,15 @@ module Jinshuju
       @host = host
     end
 
-    def all_entries(form, loc=0)
+    def get_entries(form, loc=0)
       return [] of Entry if loc.nil?
 
       url = "https://#{@host}/api/v1/forms/#{form}/entries"
-      r = Halite.basic_auth(key: @key, pass: @secret).get(url, params: { next: loc })
+      r = Halite.basic_auth(user: @key, pass: @secret).get(url, params: { next: loc })
+      raise r.body.to_s unless r.status_code == 200
 
-      values = JinShuJu::Entries.from_json r.body.to_s
-      values.data + all_entries(form, values.loc)
+      values = Entries.from_json r.body.to_s
+      values.data + get_entries(form, values.loc)
     end
   end
 end
